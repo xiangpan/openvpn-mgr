@@ -79,4 +79,8 @@ else
     echo "安装失败"
     exit 1
 fi
+cat <<EOF
+    2. 运行: /etc/openvpn/openvpn-mgr  -c initcfg 生成server.conf文件
+    3. 为了使vpn用户能访问其它服务器，vpn server端需要做snat 参考脚本  /etc/openvpn/instance/snat-rules.iptables
+EOF
 
