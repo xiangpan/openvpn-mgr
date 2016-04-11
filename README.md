@@ -32,6 +32,10 @@ openvpn-mgr 是开源的openvpn管理工具
         search：查询用户 
         initcfg: openvpn安装后，生成openvpn配置文件 
     
+    例1. 添加test用户, 密码为123456
+    ./openvpn-mgr -c add -u test -p 123456
+    例2. 删除test用户
+    ./openvpn-mgr -c del -u test
 
 
 
