@@ -62,5 +62,12 @@ install -m 755 template/*  /etc/openvpn/template
 /etc/openvpn/openvpn-mgr -c initcfg
 
 
-systemctl -f enable openvpn@server.service
-systemctl start openvpn@server.service
+if [ "$release" == "Centos" ];then
+    release_version=`sed -n 's/[^0-9]*\([0-9]\).*/\1/p' /etc/redhat-release`
+    if [ ${release_version} -eq 7 ];then
+        systemctl -f enable openvpn@server.service
+        systemctl start openvpn@server.service
+    fi
+else
+    echo
+fi

@@ -9,7 +9,7 @@ openvpn-mgr 是开源的openvpn管理工具
 ###用途：
     openvpn 自动化安装、用户管理     	
 
-需要expect软件支持
+    需要expect软件支持
 
 ###使用说明：
     默认所有文件生成后，会复制到 /etc/openvpn/目录
@@ -49,13 +49,17 @@ openvpn-mgr 是开源的openvpn管理工具
 ##安装
 
     服务端安装
-    curl http://www.smnode.com/smstatic/install_openvpn_mgr.sh | bash
+    1. curl http://www.smnode.com/smstatic/install_openvpn_mgr.sh | bash
+
+    2. 为了使vpn用户能访问其它服务器，vpn server端需要做snat 参考脚本  /etc/openvpn/instance/snat-rules.iptables
 
     客户端安装
     1. 下载openvpn客户端软件 
         https://openvpn.net/index.php/open-source/downloads.html
+
     2. 运行/etc/openvpn/build_client.sh
         将client目录中的文件，复制到客户端的config目录中
+
     
 ##交流QQ群
     323865245
