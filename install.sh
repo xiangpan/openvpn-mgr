@@ -52,22 +52,30 @@ if [ $? -ne 0 ];then
     exit 1
 fi
 
-install -m 755 openvpn-mgr /etc/openvpn/
 install -m 600  *key *crt *pem  /etc/openvpn/
 install -d  /etc/openvpn/instance
 install -d  /etc/openvpn/template
 install -m 755 instance/*  /etc/openvpn/instance
 install -m 755 template/*  /etc/openvpn/template
 
-/etc/openvpn/openvpn-mgr -c initcfg
 
-
+mgrfile="openvpn-mgr"
 if [ "$release" == "Centos" ];then
     release_version=`sed -n 's/[^0-9]*\([0-9]\).*/\1/p' /etc/redhat-release`
-    if [ ${release_version} -eq 7 ];then
-        systemctl -f enable openvpn@server.service
-        systemctl start openvpn@server.service
+    if [ -z "${release_version}" ];then
+        echo "具体发行版本未知，默认6"
+        release_version="6"
     fi
-else
-    echo
+    wget -O  /etc/openvpn/$mgrfile http://www.smnode.com/smstatic/${mgrfile}/${mgrfile}_${release_version}
+else 
+    wget -O  /etc/openvpn/$mgrfile http://www.smnode.com/smstatic/${mgrfile}/${mgrfile}_7
 fi
+
+if [ -f "/etc/openvpn/$mgrfile" ];then
+    chmod 755 /etc/openvpn/$mgrfile
+    /etc/openvpn/$mgrfile -c initcfg
+else 
+    echo "安装失败"
+    exit 1
+fi
+
