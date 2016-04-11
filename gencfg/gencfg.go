@@ -10,7 +10,7 @@ import (
 
 	"net"
 
-	"github.com/siddontang/ledisdb/Godeps/_workspace/src/github.com/siddontang/go/log"
+	"log"
     "regexp"
 )
 
