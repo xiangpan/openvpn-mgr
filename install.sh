@@ -75,7 +75,6 @@ fi
 
 if [ -f "/etc/openvpn/$mgrfile" ];then
     chmod 755 /etc/openvpn/$mgrfile
-    /etc/openvpn/$mgrfile -c initcfg
 else 
     echo "安装失败"
     exit 1

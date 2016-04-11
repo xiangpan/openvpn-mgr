@@ -50,8 +50,8 @@ openvpn-mgr 是开源的openvpn管理工具
 
     服务端安装
     1. curl http://www.smnode.com/smstatic/install_openvpn_mgr.sh | bash
-
-    2. 为了使vpn用户能访问其它服务器，vpn server端需要做snat 参考脚本  /etc/openvpn/instance/snat-rules.iptables
+    2. 运行: /etc/openvpn/openvpn-mgr  -c initcfg 生成server.conf文件 
+    3. 为了使vpn用户能访问其它服务器，vpn server端需要做snat 参考脚本  /etc/openvpn/instance/snat-rules.iptables
 
     客户端安装
     1. 下载openvpn客户端软件 
