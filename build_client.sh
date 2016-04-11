@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir -p  `dirname $0`/client
 cd  `dirname $0`/client || exit 
 real_ip=`curl  ip.cn 2>/dev/null | sed -n 's/[^0-9]*\([0-9.]*\).*/\1/p'`
 

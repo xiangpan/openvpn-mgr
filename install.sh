@@ -31,6 +31,7 @@ if [ "$release" == "Centos" ];then
     wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-${release_version}.repo
     yum -y install curl expect  openssl-devel openvpn
 else
+    apt-get update
     apt-get -y   install curl expect libssl-dev openvpn
 fi
 
@@ -57,6 +58,7 @@ install -d  /etc/openvpn/instance
 install -d  /etc/openvpn/template
 install -m 755 instance/*  /etc/openvpn/instance
 install -m 755 template/*  /etc/openvpn/template
+install -m 755 build_client.sh  /etc/openvpn/
 
 
 mgrfile="openvpn-mgr"
