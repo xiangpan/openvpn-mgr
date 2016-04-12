@@ -32,6 +32,10 @@ openvpn-mgr 是开源的openvpn管理工具
         search：查询用户 
         initcfg: openvpn安装后，生成openvpn配置文件 
     
+    例1. 添加test用户, 密码为123456
+    ./openvpn-mgr -c add -u test -p 123456
+    例2. 删除test用户
+    ./openvpn-mgr -c del -u test
 
 
 
@@ -50,8 +54,8 @@ openvpn-mgr 是开源的openvpn管理工具
 
     服务端安装
     1. curl http://www.smnode.com/smstatic/install_openvpn_mgr.sh | bash
-
-    2. 为了使vpn用户能访问其它服务器，vpn server端需要做snat 参考脚本  /etc/openvpn/instance/snat-rules.iptables
+    2. 运行: /etc/openvpn/openvpn-mgr  -c initcfg 生成server.conf文件 
+    3. 为了使vpn用户能访问其它服务器，vpn server端需要做snat 参考脚本  /etc/openvpn/instance/snat-rules.iptables
 
     客户端安装
     1. 下载openvpn客户端软件 
